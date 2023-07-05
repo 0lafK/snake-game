@@ -51,6 +51,7 @@ const handleGameOver = () => {
   clearInterval(setIntervalId);
   alert("Game Over!");
   location.reload();
+
 };
 
 const handleBoundaryCrossing = () => {
@@ -119,7 +120,7 @@ const initGame = () => {
     highScoreElement.innerText = `High Score: ${highScore}`;
     handleFoodTimer();
   }
-
+  GamePlay();
   updateSnakePosition();
 
   for (let i = 0; i < snakeBody.length; i++) {
@@ -130,7 +131,11 @@ const initGame = () => {
       gameOver = true;
     }
   }
-
+  function GamePlay() {
+    if(initGame){
+      document.body.style.overflow = "hidden"
+    }
+  }
   playboard.innerHTML = html;
   handleFoodTimer();
 };
